@@ -1,0 +1,148 @@
+{% extends 'header1.html' %}
+{% load static %}
+
+{% block content %}
+<section class="contact-form-wrap section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-title text-center">
+                    <h2 class="text-md mb-2">Edit Most Wanted Details</h2>
+                    <div class="divider mx-auto my-4"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <form id="editForm" method="post" action="{% url 'edit_most_wanted' person.pk %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="full_name" class="form-control" value="{{ person.full_name }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Alias</label>
+                        <input type="text" name="alias" class="form-control" value="{{ person.alias }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Date of Birth</label>
+                        <input type="date" name="date_of_birth" class="form-control" value="{{ person.date_of_birth|date:'Y-m-d' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Place of Birth</label>
+                        <input type="text" name="place_of_birth" class="form-control" value="{{ person.place_of_birth }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <select name="gender" class="form-control" required>
+                            <option value="Male" {% if person.gender == 'Male' %} selected {% endif %}>Male</option>
+                            <option value="Female" {% if person.gender == 'Female' %} selected {% endif %}>Female</option>
+                            <option value="Other" {% if person.gender == 'Other' %} selected {% endif %}>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Nationality</label>
+                        <select name="nationality" class="form-control" required>
+                            <option value="India" {% if person.nationality == 'India' %} selected {% endif %}>India</option>
+                            <option value="USA" {% if person.nationality == 'USA' %} selected {% endif %}>USA</option>
+                            <option value="UK" {% if person.nationality == 'UK' %} selected {% endif %}>UK</option>
+                            <option value="Canada" {% if person.nationality == 'Canada' %} selected {% endif %}>Canada</option>
+                            <option value="Australia" {% if person.nationality == 'Australia' %} selected {% endif %}>Australia</option>
+                            <!-- Add more countries as needed -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Height</label>
+                        <input type="text" name="height" class="form-control" value="{{ person.height }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Weight</label>
+                        <input type="text" name="weight" class="form-control" value="{{ person.weight }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Eye Color</label>
+                        <select name="eye_color" class="form-control" required>
+                            <option value="Blue" {% if person.eye_color == 'Blue' %} selected {% endif %}>Blue</option>
+                            <option value="Brown" {% if person.eye_color == 'Brown' %} selected {% endif %}>Brown</option>
+                            <option value="Green" {% if person.eye_color == 'Green' %} selected {% endif %}>Green</option>
+                            <option value="Gray" {% if person.eye_color == 'Gray' %} selected {% endif %}>Gray</option>
+                            <option value="Hazel" {% if person.eye_color == 'Hazel' %} selected {% endif %}>Hazel</option>
+                            <!-- Add more eye colors as needed -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Hair Color</label>
+                        <select name="hair_color" class="form-control" required>
+                            <option value="Black" {% if person.hair_color == 'Black' %} selected {% endif %}>Black</option>
+                            <option value="Brown" {% if person.hair_color == 'Brown' %} selected {% endif %}>Brown</option>
+                            <option value="Blonde" {% if person.hair_color == 'Blonde' %} selected {% endif %}>Blonde</option>
+                            <option value="Red" {% if person.hair_color == 'Red' %} selected {% endif %}>Red</option>
+                            <option value="Gray" {% if person.hair_color == 'Gray' %} selected {% endif %}>Gray</option>
+                            <!-- Add more hair colors as needed -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Distinguishing Features</label>
+                        <textarea name="distinguishing_features" class="form-control" rows="3" required>{{ person.distinguishing_features }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Offenses Committed</label>
+                        <select name="offenses_committed" class="form-control" required>
+                            <option value="Fraud" {% if person.offenses_committed == 'Fraud' %} selected {% endif %}>Fraud</option>
+                            <option value="Sexual Assault" {% if person.offenses_committed == 'Sexual Assault' %} selected {% endif %}>Sexual Assault</option>
+                            <option value="Drug" {% if person.offenses_committed == 'Drug' %} selected {% endif %}>Drug</option>
+                            <option value="Murder" {% if person.offenses_committed == 'Murder' %} selected {% endif %}>Murder</option>
+                            <option value="Rape" {% if person.offenses_committed == 'Rape' %} selected {% endif %}>Rape</option>
+                            <option value="Robbery" {% if person.offenses_committed == 'Robbery' %} selected {% endif %}>Robbery</option>
+                            <option value="Assault" {% if person.offenses_committed == 'Assault' %} selected {% endif %}>Assault</option>
+                            <option value="Kidnapping" {% if person.offenses_committed == 'Kidnapping' %} selected {% endif %}>Kidnapping</option>
+                            <option value="Arson" {% if person.offenses_committed == 'Arson' %} selected {% endif %}>Arson</option>
+                            <!-- Add more offenses as needed -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Known Location</label>
+                        <input type="text" name="last_known_location" class="form-control" value="{{ person.last_known_location }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Rewards Offered</label>
+                        <input type="text" name="rewards_offered" class="form-control" value="{{ person.rewards_offered }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Recent Photographs</label>
+                        <input type="file" name="recent_photographs" class="form-control-file">
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Numbers</label>
+                        <input type="text" name="contact_numbers" class="form-control" value="{{ person.contact_numbers }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Background Information</label>
+                        <textarea name="background_information" class="form-control" rows="3">{{ person.background_information }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Known Addresses</label>
+                        <textarea name="known_addresses" class="form-control" rows="3">{{ person.known_addresses }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Date of Last Known Activity</label>
+                        <input type="date" name="date_of_last_known_activity" class="form-control" value="{{ person.date_of_last_known_activity|date:'Y-m-d' }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Current Status</label>
+                        <select name="current_status" class="form-control" required>
+                            <option value="At Large" {% if person.current_status == 'At Large' %} selected {% endif %}>At Large</option>
+                            <option value="Captured" {% if person.current_status == 'Captured' %} selected {% endif %}>Captured</option>
+                            <option value="Deceased" {% if person.current_status == 'Deceased' %} selected {% endif %}>Deceased</option>
+                            <!-- Add more status options as needed -->
+                        </select>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary mt-4">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

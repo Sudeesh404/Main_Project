@@ -1,0 +1,57 @@
+{% extends 'header.html' %}
+{% block content %}
+<section class="page-title back-9550">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="block text-center">
+            <h1 class="text-capitalize mb-5 text-lg">E-Mail Verification</h1>
+            <p style="color: red;">{{msg}}</p>
+  
+            <!-- <ul class="list-inline breadcumb-nav">
+              <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+              <li class="list-inline-item"><span class="text-white">/</span></li>
+              <li class="list-inline-item"><a href="#" class="text-white-50">Book your Seat</a></li>
+            </ul> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="appoinment section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+            <div class="mt-3">
+              <div class="feature-icon mb-3">
+                <i class="icofont-support text-lg"></i>
+              </div>
+               <span class="h3">Call for an Emergency Service!</span>
+                <h2 class="text-color mt-3">+91 784 789 1256 </h2>
+            </div>
+        </div>
+  
+        <div class="col-lg-8">
+             <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+              <h2 class="mb-2 title-color">Enter the OTP</h2>
+                <form role="form" action="{% url 'otp' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="otp" value="{{otp}}" id="">
+                      <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input name="uotp" id="" type="text" class="form-control" placeholder="Enter the OTP" style ='width : 200%;'>
+                                    <button type="submit" href="#" class="btn btn-primary mt-4" style="width : 100%">Submit</button>
+                                </div>
+                            </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}  

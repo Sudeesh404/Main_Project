@@ -1,0 +1,71 @@
+{% extends 'admin-header.html' %}
+{% block content %}
+{% load static %}
+
+<section class="page-title back-9550">
+	<div class="overlay"></div>
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-12">
+		  <div class="block text-center">
+			<h1 class="text-capitalize mb-5 text-lg">Police Station</h1>
+			<p style="color: red;">{{msg}}</p>
+  
+			<!-- <ul class="list-inline breadcumb-nav">
+			  <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+			  <li class="list-inline-item"><span class="text-white">/</span></li>
+			  <li class="list-inline-item"><a href="#" class="text-white-50">Book your Seat</a></li>
+			</ul> -->
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+
+<section class="section doctor-single">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-6">
+				<div class="doctor-img-block">
+					<img src="{{stations.img.url}}" alt="image placeholder" class="img-fluid w-100" style="border-radius:50%; width:5cm; height:12cm;">
+                    
+				</div>
+			</div>
+
+			<div class="col-lg-8">
+                <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+                 
+                    <form id="#" class="appoinment-form" method="POST" action="{% url 'admin-one-station' stations.id %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>Station</h6>
+                                    <input name="station" type="text" class="form-control" value = '{{stations.station}}'>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <h6>Picture</h6>
+                            <input type="file" name="img" class="form-control">
+                        </div>
+                        <div>
+                            <div class="form-group-2 mb-4">
+                                <h6>Details of the suspect</h6>
+                                <textarea name="address" class="form-control" rows="8"  >{{stations.address}}</textarea>
+                            </div>
+                            <div class="col-lg-6">
+                                
+                            </div>
+                        </div>
+    
+                        <div class="text-center">
+                            <button type="submit" href="#" class="btn btn-primary mt-4">Save</button>
+                        </div>
+                     </form>
+                 </div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

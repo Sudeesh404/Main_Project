@@ -1,0 +1,18 @@
+{% extends 'header1.html' %}
+{% block content %}
+{% load static %}
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% for post in posts %}
+    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+    <p>{{ post.content }}</p>
+    <p>Published by {{ post.author }} on {{ post.published_date }}</p>
+    <hr>
+{% endfor %}
+{% endblock %}

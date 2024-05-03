@@ -1,0 +1,35 @@
+{% extends 'header.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Most Wanted Persons List</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Alias</th>
+                <th>Date of Birth</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for person in most_wanted_list %}
+            <tr>
+                <td>{{ person.full_name }}</td>
+                <td>{{ person.alias }}</td>
+                <td>{{ person.date_of_birth }}</td>
+                <td>
+                    <a href="{% url 'edit_most_wanted' person.id %}" class="btn btn-primary">Edit</a>
+                    <form action="{% url 'delete_most_wanted' person.id %}" method="post" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    <a href="{% url 'view_most_wanted' person.id%}" class="btn btn-info">More Details</a>
+                    <a href="{% url 'ins-index' %}" class="btn btn-secondary">Home</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

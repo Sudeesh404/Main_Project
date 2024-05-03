@@ -1,0 +1,101 @@
+{% extends 'header.html' %}
+{% block content %}
+{% load static %}
+
+<section class="page-title back-9550">
+	<div class="overlay"></div>
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-12">
+		  <div class="block text-center">
+			<h1 class="text-capitalize mb-5 text-lg">Missing Person Details</h1>
+
+			<!-- <ul class="list-inline breadcumb-nav">
+			  <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+			  <li class="list-inline-item"><span class="text-white">/</span></li>
+			  <li class="list-inline-item"><a href="#" class="text-white-50">Book your Seat</a></li>
+			</ul> -->
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+
+<section class="section doctor-single">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-6">
+				<div class="doctor-img-block">
+            <img src="{{miss.pic.url}}" alt="image placeholder" class="img-fluid w-100" style="border-radius:50%; width:5cm; height:12cm;">
+				</div>
+			</div>
+
+			<div class="col-lg-8">
+                <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+                 <h2 class="mb-2 title-color">View Details</h2>
+                 <p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit . Iste dolorum atque similique praesentium soluta.</p>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>First Name</h6>
+                                    <input name="fname" type="text" class="form-control" disabled value = '{{miss.fname}}'>
+                                </div>
+                            </div>
+    
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>Last Name</h6>
+                                    <input name="lname" type="text" class="form-control" disabled value ='{{miss.lname}}' >
+                                </div>
+                            </div>
+                             <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>Address</h6>
+                                    <input name="email" type="email" class="form-control" disabled value ='{{miss.address}}'>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>Area</h6>
+                                    <input name="phone" type="text" class="form-control" disabled value ='{{miss.area}}' >
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>Contact</h6>
+                                    <input name="phone" type="text" class="form-control" disabled value ='{{miss.contact}}' >
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>Height</h6>
+                                    <input name="phone" type="text" class="form-control" disabled value ='{{miss.height}}' >
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>Weight</h6>
+                                    <input name="phone" type="text" class="form-control" disabled value ='{{miss.weight}}' >
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>Status</h6>
+                                    {% if entry.status == True %}
+                            
+                                    <p style="color: #63f542;"><i class="icofont-tick-mark" style="color: #63f542; font-size: 150%;"></i>Person Found</p>
+                                    {% else %}
+                                    
+                                    <p style="color: red;"><i class="icofont-sand-clock" style="color: red;font-size: 150%;" ></i>Still Missing</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <a href="{% url 'missing' %}" class="btn btn-main btn-round-full">GO BACK</a>
+                        </div>
+                 </div>
+		</div>
+	</div>
+</section>
+
+
+{% endblock %}

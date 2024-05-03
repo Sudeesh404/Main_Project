@@ -1,0 +1,69 @@
+{% extends 'admin-header.html' %}
+{% block content %}
+{% load static %}
+
+<section class="page-title back-9550">
+	<div class="overlay"></div>
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-12">
+		  <div class="block text-center">
+			<h1 class="text-capitalize mb-5 text-lg">View Profile</h1>
+
+			<!-- <ul class="list-inline breadcumb-nav">
+			  <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+			  <li class="list-inline-item"><span class="text-white">/</span></li>
+			  <li class="list-inline-item"><a href="#" class="text-white-50">Book your Seat</a></li>
+			</ul> -->
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+
+<section class="section doctor-single">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-6">
+				<div class="doctor-img-block">
+          <img src="{{adm.pic.url}}" alt="image placeholder" class="img-flins w-100" style="border-radius:50%; width:5cm; height:12cm;">
+				</div>
+			</div>
+
+			<div class="col-lg-8">
+                <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+                 
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>First Name</h6>
+                                    <input name="fname" type="text" class="form-control" disabled value = '{{adm.fname}}'>
+                                </div>
+                            </div>
+    
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>Last Name</h6>
+                                    <input name="lname" type="text" class="form-control" disabled value ='{{adm.lname}}' >
+                                </div>
+                            </div>
+                             <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>E-mail</h6>
+                                    <input name="email" type="email" class="form-control" disabled value ='{{adm.email}}'>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>User Name</h6>
+                                    <input name="user_id" type="text" class="form-control" disabled value ='{{adm.user_id}}' >
+                                </div>
+                            </div>
+                        </div>
+                 </div>
+		</div>
+	</div>
+</section>
+
+
+{% endblock %}

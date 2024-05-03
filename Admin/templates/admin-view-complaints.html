@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% extends 'admin-header.html' %}
+    {% block content %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View All Complaints</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>All Complaints</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Applicant</th>
+                    <th>Police Station</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Address</th>
+                    <th>Landmark</th>
+                    <th>Charge</th>
+                    <th>Victim</th>
+                    <th>Informant's Name</th>
+                    <th>DOB</th>
+                    <th>Informant's Address</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for complaint in complaints %}
+                <tr>
+                    <td>{{ complaint.applicant }}</td>
+                    <td>{{ complaint.police }}</td>
+                    <td>{{ complaint.date }}</td>
+                    <td>{{ complaint.time }}</td>
+                    <td>{{ complaint.address }}</td>
+                    <td>{{ complaint.landmark }}</td>
+                    <td>{{ complaint.charge }}</td>
+                    <td>{{ complaint.victim }}</td>
+                    <td>{{ complaint.ifname }} {{ complaint.ilname }}</td>
+                    <td>{{ complaint.dob }}</td>
+                    <td>{{ complaint.iaddress }}</td>
+                    <td>{{ complaint.status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endblock %}
+</body>
+</html>

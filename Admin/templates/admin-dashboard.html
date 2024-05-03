@@ -1,0 +1,141 @@
+{% extends 'admin-header.html' %}
+{% block content %}
+{% load static %}
+<style>
+    .sidebar {
+        background-color: #2C3E50; /* Dark blue background */
+        padding: 20px;
+        border-right: 3px solid #3498DB; /* Blue border */
+        color: #ECF0F1; /* Light text color */
+    }
+
+    .sidebar-item {
+        margin-bottom: 10px;
+    }
+
+    .sidebar-title {
+        font-size: 24px; /* Larger font size */
+        margin-bottom: 20px;
+        color: #ECF0F1; /* Light text color */
+        border-bottom: 2px solid #3498DB; /* Blue border bottom */
+        padding-bottom: 10px;
+    }
+
+    .sidebar-links {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .sidebar-links li {
+        margin-bottom: 15px;
+    }
+
+    .sidebar-links a {
+        text-decoration: none;
+        color: #ECF0F1; /* Light text color */
+        font-weight: 600;
+        font-size: 18px; /* Font size */
+        transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        display: block; /* Make the link fill the box */
+        padding: 10px; /* Padding inside the box */
+        border-radius: 5px; /* Rounded corners */
+    }
+
+    .sidebar-links a:hover {
+        background-color: #ff3390; /* Blue hover background color */
+        color: white; /* White text color on hover */
+    }
+</style>
+
+
+
+<section class="admin-dashboard">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3 col-md-4 col-sm-12 sidebar">
+                <div class="sidebar-item">
+                    <h3 class="sidebar-title">Admin Dashboard</h3>
+                    <ul class="sidebar-links">
+                        <li><a href="{% url 'view_all_complaints' %}">View Complaints</a></li>
+                        <li><a href="{% url 'admin-policestation' %}">Manage Police Station</a></li>
+                        <li><a href="{% url 'admin-user' %}">Manage User</a></li>
+                        <li><a href="{% url 'missing' %}">Missing Person</a></li>
+                        <li><a href="{% url 'admin-feedback' %}">Manage Feedback</a></li>
+                        <li><a href="{% url 'admin-station' %}">Manage Police Station</a></li>
+                        <li><a href="{% url 'admin_mostwanted' %}">Most wanted Criminals</a></li>
+                        <li><a href="{% url 'add_post' %}">Blog</a></li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9 col-md-8 col-sm-12 main-content">
+                <div class="row">
+                    <!-- Service Blocks -->
+                    <div class="col-lg-9 col-md-8 col-sm-12 main-content">
+                        <div class="row">
+                            <!-- Service Blocks -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="service-block mb-5 mb-lg-0">
+                                    <p><h1>{{ user_count }}</h1></p>
+                                    <div class="content">
+                                        <h4 class="mt-4 mb-2 title-color">Total Users</h4>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                      <!-- Station Count Block -->
+                      <div class="col-lg-4 col-md-6">
+                        <div class="service-block mb-5 mb-lg-0">
+                            <p><h1>{{ station_count }}</h1></p>
+                            <div class="content">
+                                <h4 class="mt-4 mb-2 title-color">Total Stations</h4>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-block mb-5 mb-lg-0">
+                            <p><h1>{{ solved_count }}</h1></p>
+                            <div class="content">
+                                <h4 class="mt-4 mb-2 title-color">Total Solved Cases</h4>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-block mb-5 mb-lg-0">
+                            <p><h1>{{ complaint_count }}</h1></p>
+                            <div class="content">
+                                <h4 class="mt-4 mb-2 title-color">Total Complaints</h4>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-block mb-5 mb-lg-0">
+                            <p><h1>{{ feedback_count }}</h1></p>
+                            <div class="content">
+                                <h4 class="mt-4 mb-2 title-color">Total Feedbacks</h4>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="service-block mb-5 mb-lg-0">
+                            <p><h1>{{ missing_count }}</h1></p>
+                            <div class="content">
+                                <h4 class="mt-4 mb-2 title-color">Total Missing Persons</h4>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

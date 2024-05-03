@@ -1,0 +1,29 @@
+{% extends 'header.html' %}
+{% block content %}
+<div class="container">
+    <h2>Most Wanted Persons List</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Alias</th>
+                <th>Date of Birth</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for person in most_wanted_list %}
+            <tr>
+                <td>{{ person.full_name }}</td>
+                <td>{{ person.alias }}</td>
+                <td>{{ person.date_of_birth }}</td>
+                <td>
+                    <a href="{% url 'admin_one_mostwanted' person.id%}" class="btn btn-info">More Details</a>
+                    <a href="{% url 'admin_dashboard' %}" class="btn btn-secondary">Back</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

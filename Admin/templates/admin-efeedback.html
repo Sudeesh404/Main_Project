@@ -1,0 +1,67 @@
+{% extends 'admin-header.html' %}
+{% load static %}
+{% block content %}
+
+
+<section class="page-title back-9550">
+	<div class="overlay"></div>
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-12">
+		  <div class="block text-center">
+			<h1 class="text-capitalize mb-5 text-lg">Manage Feedback</h1>
+			<p style="color: red;">{{msg}}</p>
+  
+			<!-- <ul class="list-inline breadcumb-nav">
+			  <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+			  <li class="list-inline-item"><span class="text-white">/</span></li>
+			  <li class="list-inline-item"><a href="#" class="text-white-50">Book your Seat</a></li>
+			</ul> -->
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+
+<section class="section doctor-single">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-6">
+				<div class="doctor-img-block">
+					<img src="{{feed.applicant.pic.url}}" alt="image placeholder" class="img-fluid w-100" style="border-radius:50%; width:5cm; height:12cm;">
+                    
+				</div>
+			</div>
+
+			<div class="col-lg-8">
+                <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+                 
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>Applicant</h6>
+                                    <input  type="text" class="form-control" value = '{{feed.applicant.fname}} {{feed.applicant.lname}}'>
+                                </div>
+                            </div>
+    
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>Title</h6>
+                                    <input type="text" class="form-control" value ='{{feed.title}}' >
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group-2 mb-4">
+                                <h6>Feedback</h6>
+                                <textarea  class="form-control" rows="8" disabled >{{feed.feed}}</textarea>
+                            </div>
+                        </div>
+    
+                 </div>
+		</div>
+	</div>
+</section>
+
+
+{% endblock %}

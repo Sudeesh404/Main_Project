@@ -1,0 +1,252 @@
+{% extends 'header1.html' %}
+{% load static %}
+{% block content %}
+
+<section class="page-title back-9550">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block text-center">
+                    <h1 class="text-capitalize mb-5 text-lg">Missing Person</h1>
+                    <p style="color: red;">{{msg}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact-form-wrap section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <form class="submit" type="submit" method="post" action="{% url 'add-missing' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <h6>First Name</h6>
+                                <input name="fname" id="fname" type="text" class="form-control" placeholder="First Name">
+                                <span id="fnameError" style="color: red;"></span>
+                            </div>
+                            
+                            <script>
+                                var fnameInput = document.getElementById('fname');
+                                var fnameError = document.getElementById('fnameError');
+                            
+                                fnameInput.addEventListener('input', function() {
+                                    var fnameValue = fnameInput.value;
+                            
+                                    // Regular expression to check for special characters
+                                    var specialCharacters = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+                            
+                                    // Regular expression to check for numbers at the beginning
+                                    var startsWithNumber = /^\d/;
+                            
+                                    // Regular expression to check for underscore at the beginning
+                                    var startsWithUnderscore = /^_/;
+                            
+                                    // Check if the first name contains special characters, starts with a number, or starts with an underscore
+                                    if (specialCharacters.test(fnameValue) || startsWithNumber.test(fnameValue) || startsWithUnderscore.test(fnameValue)) {
+                                        fnameError.textContent = 'First name cannot contain special characters, start with a number, or start with an underscore.';
+                                    } else {
+                                        fnameError.textContent = '';
+                                    }
+                                });
+                            </script>
+                            
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <h6>Last Name</h6>
+                                <input name="lname" id="lname" type="text" class="form-control" placeholder="Last Name">
+                                <span id="lnameError" style="color: red;"></span>
+                            </div>
+                            
+                            <script>
+                                var lnameInput = document.getElementById('lname');
+                                var lnameError = document.getElementById('lnameError');
+                            
+                                lnameInput.addEventListener('input', function() {
+                                    var lnameValue = lnameInput.value;
+                            
+                                    // Regular expression to check for special characters
+                                    var specialCharacters = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+                            
+                                    // Regular expression to check for numbers at the beginning
+                                    var startsWithNumber = /^\d/;
+                            
+                                    // Regular expression to check for underscore at the beginning
+                                    var startsWithUnderscore = /^_/;
+                            
+                                    // Check if the last name contains special characters, starts with a number, or starts with an underscore
+                                    if (specialCharacters.test(lnameValue) || startsWithNumber.test(lnameValue) || startsWithUnderscore.test(lnameValue)) {
+                                        lnameError.textContent = 'Last name cannot contain special characters, start with a number, or start with an underscore.';
+                                    } else {
+                                        lnameError.textContent = '';
+                                    }
+                                });
+                            </script>
+                            
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <h6>Address</h6>
+                                <input name="address" id="address" type="text" class="form-control" placeholder="Address">
+                                <span id="addressError" style="color: red;"></span>
+                            </div>
+                            
+                            <script>
+                                var addressInput = document.getElementById('address');
+                                var addressError = document.getElementById('addressError');
+                            
+                                addressInput.addEventListener('input', function() {
+                                    var addressValue = addressInput.value;
+                            
+                                    // Regular expression to check for special characters
+                                    var specialCharacters = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+                            
+                                    // Regular expression to check for underscore at the beginning
+                                    var startsWithUnderscore = /^_/;
+                            
+                                    // Check if the address contains special characters or starts with an underscore
+                                    if (addressValue.trim() === '') {
+                                        addressError.textContent = 'Address is required.';
+                                    } else if (specialCharacters.test(addressValue) || startsWithUnderscore.test(addressValue)) {
+                                        addressError.textContent = 'Address cannot contain special characters or start with an underscore.';
+                                    } else {
+                                        addressError.textContent = '';
+                                    }
+                                });
+                            </script>
+                            
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <h6>Area</h6>
+                                <input name="area" id="area" type="text" class="form-control" placeholder="Area">
+                                <span id="areaError" style="color: red;"></span>
+                            </div>
+                            
+                            <script>
+                                var areaInput = document.getElementById('area');
+                                var areaError = document.getElementById('areaError');
+                            
+                                areaInput.addEventListener('input', function() {
+                                    var areaValue = areaInput.value;
+                            
+                                    if (areaValue.trim() === '') {
+                                        areaError.textContent = 'Area is required.';
+                                    } else {
+                                        areaError.textContent = '';
+                                    }
+                                });
+                            </script>
+                            
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <h6>Height</h6>
+                                <input name="height" id="height" type="text" class="form-control" placeholder="Height in cm">
+                                <span id="heightError" style="color: red;"></span>
+                            </div>
+                            
+                            <script>
+                                var heightInput = document.getElementById('height');
+                                var heightError = document.getElementById('heightError');
+                            
+                                heightInput.addEventListener('input', function() {
+                                    var heightValue = heightInput.value;
+                            
+                                    if (!(/^\d+$/.test(heightValue))) {
+                                        heightError.textContent = 'Please enter only numerical values.';
+                                    } else if (parseInt(heightValue) < 30 || parseInt(heightValue) > 200) {
+                                        heightError.textContent = 'Height should be between 30 and 200.';
+                                    } else {
+                                        heightError.textContent = '';
+                                    }
+                                });
+                            </script>
+                            
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <h6>Weight</h6>
+                                <input name="weight" id="weight" type="text" class="form-control" placeholder="Weight in kg">
+                                <span id="weightError" style="color: red;"></span>
+                            </div>
+                            
+                            <script>
+                                var weightInput = document.getElementById('weight');
+                                var weightError = document.getElementById('weightError');
+                            
+                                weightInput.addEventListener('input', function() {
+                                    var weightValue = weightInput.value;
+                            
+                                    if (weightValue === '') {
+                                        weightError.textContent = 'Please fill out this field.';
+                                    } else if (weightValue === '0') {
+                                        weightError.textContent = 'Weight cannot be 0.';
+                                    } else {
+                                        weightError.textContent = '';
+                                    }
+                                });
+                            </script>
+                            
+                            
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <h6>Contact</h6>
+                                <input name="contact" id="contact" type="text" class="form-control" placeholder="Contact">
+                                <span id="contactError" style="color: red;"></span>
+                            </div>
+                            
+                            <script>
+                                var contactInput = document.getElementById('contact');
+                                var contactError = document.getElementById('contactError');
+                            
+                                contactInput.addEventListener('input', function() {
+                                    var contactValue = contactInput.value;
+                            
+                                    // Validate if input consists only of numbers
+                                    var isNumeric = /^\d+$/.test(contactValue);
+                            
+                                    if (!isNumeric) {
+                                        contactError.textContent = 'Please enter only numbers.';
+                                    } else if (contactValue.length > 10) {
+                                        contactError.textContent = 'Contact must not exceed 10 digits.';
+                                    } else {
+                                        contactError.textContent = '';
+                                    }
+                                });
+                            </script>
+                                                      
+                            
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <h6>Status</h6>
+                                <select name="status" class="form-control">
+                                    <option value="1">Found</option>
+                                    <option value="0">Missing</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <h6>Picture</h6>
+                                <input name="pic" type="file" class="form-control-file">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

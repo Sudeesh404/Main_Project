@@ -1,0 +1,29 @@
+{% extends 'header.html' %}
+{% block content %}
+    
+<body>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+    <h1>Add Post</h1>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br>
+        <label for="content">Content:</label><br>
+        <textarea id="content" name="content" required></textarea><br>
+        
+        <label for="image">Image:</label><br>
+        <input type="file" id="image" name="image"><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+{% endblock %}

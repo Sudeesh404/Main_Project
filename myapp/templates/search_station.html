@@ -1,0 +1,37 @@
+{% extends 'header1.html' %}
+{% block content %}
+{% load static %}
+
+<section class="section service gray-bg">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-7 text-center">
+				<div class="section-title">
+					<h2>Search Police Station</h2>
+					<div class="divider mx-auto my-4"></div>
+					<p>“We are always ready to serve you comfort.”</p>
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+            {% for entry in stations%}
+			<div class="col-lg-3 col-md-6 col-sm-6">
+				<div class="team-block mb-5 mb-lg-0">
+					<img src="{{entry.img.url}}" style="width : 400px; height : 300px" alt="" class="img-fluid w-100">
+		
+					<div class="content">
+						<h4 class="mt-4 mb-0"><a href="doctor-single.html">{{entry.station}}</a></h4>
+						<p>Internist, Emergency Physician</p>
+					</div>
+				</div>
+			</div>
+            {% endfor %}
+		</div>
+	</div>
+</section>
+
+
+
+{% endblock %}

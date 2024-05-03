@@ -1,0 +1,151 @@
+{% extends 'ins-header.html' %}
+{% block content %}
+{% load static %}
+
+<section class="banner">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-12 col-xl-7">
+				<div class="block">
+					<div class="divider mb-3"></div>
+					<span class="text-uppercase text-sm letter-spacing "></span>
+					<h1 class="mb-3 mt-3">Mridhu Bhave</h1>
+					<h1 class="mb-3 mt-3">Dhritha</h1>
+					<h1 class="mb-3 mt-3">Kruthye</h1>
+					
+					<p class="mb-4 pr-5">United we stand, Divided we fall.</p>
+				</div>
+			</div>
+			<div class="col-lg-5 col-md-12 col-xl-5 d-flex justify-content-center align-items-center"> <!-- Image column -->
+				<img style="height: 500px;" src="{% static 'images/police_logo.jpg' %}" alt="Image" class="img-fluid img-large">
+			</div>
+		</div>
+	</div>
+</section>
+
+{% comment %} <section class="features">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="feature-block d-lg-flex">
+					<div class="feature-item mb-5 mb-lg-0">
+						<div class="feature-icon mb-4">
+							<i class="icofont-surgeon-alt"></i>
+						</div>
+						<span>24 Hours Service</span>
+						<h4 class="mb-3">Online Appoinment</h4>
+						<p class="mb-4">Get ALl time support for emergency.We have introduced the principle of family medicine.</p>
+						<a href="#" class="btn btn-main btn-round-full">Make a appoinment</a>
+					</div>
+				
+					<div class="feature-item mb-5 mb-lg-0">
+						<div class="feature-icon mb-4">
+							<i class="icofont-ui-clock"></i>
+						</div>
+						<span>Timing schedule</span>
+						<h4 class="mb-3">Working Hours</h4>
+						<ul class="w-hours list-unstyled">
+		                    <li class="d-flex justify-content-between">Sun - Wed : <span>8:00 - 17:00</span></li>
+		                    <li class="d-flex justify-content-between">Thu - Fri : <span>9:00 - 17:00</span></li>
+		                    <li class="d-flex justify-content-between">Sat - sun : <span>10:00 - 17:00</span></li>
+		                </ul>
+					</div>
+				
+					<div class="feature-item mb-5 mb-lg-0">
+						<div class="feature-icon mb-4">
+							<i class="icofont-support"></i>
+						</div>
+						<span>Emegency Cases</span>
+						<h4 class="mb-3">1-800-700-6200</h4>
+						<p>Get ALl time support for emergency.We have introduced the principle of family medicine.Get Conneted with us for any urgency .</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section> {% endcomment %}
+<br>
+<br>
+<br>
+<br>
+
+<section class="section cta-page" style="padding-top: 20px; padding-bottom: 20px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="cta-content">
+                    <div class="divider mb-2"></div>
+                    <h2 class="mb-3 text-md" style="color: whitesmoke;">Justice Delayed is, <br> <span style="color: whitesmoke;">Justice Denied</span></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br><br>
+
+<section>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12 testimonial-wrap-2">
+                
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-block mb-5 mb-lg-0">
+                        <img src="{% static 'images/service/service-8.jpg' %}" alt="" class="img-fluid" style="max-width: 100%; height: auto;">
+                        <div class="content">
+                            <h4 class="mt-4 mb-2 title-color">View Complaint</h4>
+                            <p class="mb-4">View all the complaintssubmitted by users.</p>
+                            <a class="btn btn-main btn-round-full" href="{% url 'ins-view-com' %}">Proceed</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-block mb-5 mb-lg-0">
+                        <img src="{% static 'images/service/service-8.jpg' %}" alt="" class="img-fluid" style="max-width: 100%; height: auto;">
+                        <div class="content">
+                            <h4 class="mt-4 mb-2 title-color">Manage Complaint</h4>
+                            <p class="mb-4">Manage complaints submitted by the system userss</p>
+                            <a class="btn btn-main btn-round-full" href="{% url 'ins-manage-com' %}">Proceed</a>
+                        </div>
+                    </div>
+                </div>
+				<div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-block mb-5 mb-lg-0">
+                        <img src="{% static 'images/service/service-8.jpg' %}" alt="" class="img-fluid" style="max-width: 100%; height: auto;">
+                        <div class="content">
+                            <h4 class="mt-4 mb-2 title-color">Add Most Wanted</h4>
+                            <p class="mb-4">Manage complaints submitted by the system users.</p>
+                            <a class="btn btn-main btn-round-full" href="{% url 'add_most_wanted' %}">Proceed</a>
+                        </div>
+                    </div>
+                </div>
+				<div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-block mb-5 mb-lg-0">
+                        <img src="{% static 'images/service/service-8.jpg' %}" alt="" class="img-fluid" style="max-width: 100%; height: auto;">
+                        <div class="content">
+                            <h4 class="mt-4 mb-2 title-color">View Wanted List</h4>
+                            <p class="mb-4">Manage complaints submitted by the system userss</p>
+                            <a class="btn btn-main btn-round-full" href="{% url 'most_wanted_list' %}">Proceed</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-block mb-5 mb-lg-0">
+                        <img src="{% static 'images/service/service-8.jpg' %}" alt="" class="img-fluid" style="max-width: 100%; height: auto;">
+                        <div class="content">
+                            <h4 class="mt-4 mb-2 title-color">Manage-Feedback</h4>
+                            <p class="mb-4">Manage the user feedbacks submitted by the system users.</p>
+                            <a class="btn btn-main btn-round-full" href="{% url 'admin-feedback' %}">Proceed</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+{% endblock %}

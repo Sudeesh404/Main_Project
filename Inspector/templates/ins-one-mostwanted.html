@@ -1,0 +1,48 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">{{ person.full_name }}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="{{ person.recent_photographs.url }}" alt="Recent Photograph" class="img-fluid">
+                        </div>
+                        <div class="col-md-8">
+                            <p><strong>Alias:</strong> {{ person.alias }}</p>
+                            <p><strong>Date of Birth:</strong> {{ person.date_of_birth }}</p>
+                            <p><strong>Place of Birth:</strong> {{ person.place_of_birth }}</p>
+                            <p><strong>Gender:</strong> {{ person.gender }}</p>
+                            <p><strong>Nationality:</strong> {{ person.nationality }}</p>
+                            <p><strong>Height:</strong> {{ person.height }}</p>
+                            <p><strong>Weight:</strong> {{ person.weight }}</p>
+                            <p><strong>Eye Color:</strong> {{ person.eye_color }}</p>
+                            <p><strong>Hair Color:</strong> {{ person.hair_color }}</p>
+                            <p><strong>Distinguishing Features:</strong> {{ person.distinguishing_features }}</p>
+                            <p><strong>Offenses Committed:</strong> {{ person.offenses_committed }}</p>
+                            <p><strong>Last Known Location:</strong> {{ person.last_known_location }}</p>
+                            <p><strong>Rewards Offered:</strong> {{ person.rewards_offered }}</p>
+                            <p><strong>Contact Numbers:</strong> {{ person.contact_numbers }}</p>
+                            <p><strong>Background Information:</strong> {{ person.background_information }}</p>
+                            <p><strong>Known Addresses:</strong> {{ person.known_addresses }}</p>
+                            <p><strong>Date of Last Known Activity:</strong> {{ person.date_of_last_known_activity }}</p>
+                            <p><strong>Current Status:</strong> {{ person.current_status }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'edit_most_wanted' person.pk %}" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'delete_most_wanted' person.pk %}" class="btn btn-danger">Delete</a>
+                    <a href="{% url 'ins-index' %}" class="btn btn-secondary">Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

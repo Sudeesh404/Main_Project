@@ -1,0 +1,85 @@
+{% extends 'header1.html' %}
+{% block content %}
+{% load static %}
+
+<section class="page-title back-9550">
+	<div class="overlay"></div>
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-12">
+		  <div class="block text-center">
+			<h1 class="text-capitalize mb-5 text-lg">Edit Profile</h1>
+			<p style="color: red;">{{msg}}</p>
+  
+			<!-- <ul class="list-inline breadcumb-nav">
+			  <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+			  <li class="list-inline-item"><span class="text-white">/</span></li>
+			  <li class="list-inline-item"><a href="#" class="text-white-50">Book your Seat</a></li>
+			</ul> -->
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+
+<section class="section doctor-single">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-6">
+				<div class="doctor-img-block">
+					<img src="{{uid.pic.url}}" alt="image placeholder" class="img-fluid w-100" style="border-radius:50%; width:5cm; height:12cm;">
+                    
+				</div>
+			</div>
+
+			<div class="col-lg-8">
+                <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+                 <h2 class="mb-2 title-color">Book an appoinment</h2>
+                 <p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit . Iste dolorum atque similique praesentium soluta.</p>
+                    <form id="#" class="appoinment-form" method="POST" action="{% url 'edit-profile' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>First Name</h6>
+                                    <input name="fname" type="text" class="form-control" value = '{{uid.fname}}'>
+                                </div>
+                            </div>
+    
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>Last Name</h6>
+                                    <input name="lname" type="text" class="form-control" value ='{{uid.lname}}' >
+                                </div>
+                            </div>
+                             <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>E-mail</h6>
+                                    <input name="email" type="email" class="form-control" disabled value ='{{uid.email}}'>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>Phone Number</h6>
+                                    <input name="phone" type="text" class="form-control" value ='{{uid.phone}}' >
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h6>Profile Picture</h6>
+                                    <input type="file" name="pic" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="text-center">
+                            <button type="submit" href="#" class="btn btn-primary mt-4">Save</button>
+                        </div>
+                     </form>
+                 </div>
+		</div>
+	</div>
+</section>
+
+
+{% endblock %}

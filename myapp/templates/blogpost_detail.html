@@ -1,0 +1,43 @@
+
+<!-- blog/post_detail.html -->
+{% extends 'header1.html' %}
+{% block content %}
+{% load static %}
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<div>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    {% if post.image %}
+        <img src="{{ post.image.url }}" alt="{{ post.title }} image">
+    {% endif %}
+    <p>Published by {{ post.author }} on {{ post.published_date }}</p>
+</div>
+
+<hr>
+
+{% for comment in post.comments.all %}
+    <div>
+        <p>{{ comment.text }}</p>
+        <p>Comment by {{ comment.author }} on {{ comment.created_date }}</p>
+    </div>
+{% empty %}
+    <p>No comments yet.</p>
+{% endfor %}
+
+<hr>
+
+<h2>Add a comment</h2>
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="author" placeholder="Your name">
+    <textarea name="text"></textarea>
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

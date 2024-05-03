@@ -1,0 +1,45 @@
+{% extends 'admin-header.html' %}
+{% block content %}
+{% load static %}
+
+<section class="page-title back-9550">
+	<div class="overlay"></div>
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-12">
+		  <div class="block text-center">
+			<h1 class="text-capitalize mb-5 text-lg">Category of Crime</h1>
+			<p style="color: red;">{{msg}}</p>
+  
+			<!-- <ul class="list-inline breadcumb-nav">
+			  <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+			  <li class="list-inline-item"><span class="text-white">/</span></li>
+			  <li class="list-inline-item"><a href="#" class="text-white-50">Book your Seat</a></li>
+			</ul> -->
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+
+
+  <section class="contact-form-wrap section">
+    <div class="container">
+        <table id="customers">
+            <tr>
+              <th>Sr. No</th>
+              <th>Crime</th>
+            </tr>
+            {% for entry in cate %}
+            <tr>
+              <td>{{entry.id}}</td>
+              <td>{{entry.category}}</td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+    </div>
+</div>
+</section>
+
+{% endblock %}

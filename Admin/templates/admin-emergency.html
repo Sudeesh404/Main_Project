@@ -1,0 +1,54 @@
+{% extends 'admin-header.html' %}
+{% block content %}
+{% load static %}
+
+<section class="page-title bg-1">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+            <div class="block text-center">
+            <span class="text-white">News details</span>
+            <h1 class="text-capitalize mb-5 text-lg">Emergency Details</h1>
+
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+    
+    
+    
+    <section class="section blog-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row">
+        <div class="col-lg-12 mb-5">
+            <div class="single-blog-item">
+                {% comment %} <img src="{% static 'images/blog/blog-1.jpg' %}" alt="" class="img-fluid"> <!-- Image column --> {% endcomment %}
+                    <img style="height: 500px;" src="{% static 'images/emerg.jpg' %}" alt="Image" class="img-fluid img-large">
+                <div class="blog-item-content mt-5">
+                    
+    
+                    <h2 class="mb-4 text-md">The state police chief visited the district</h2>
+    
+                    <p class="lead mb-4">The state police chief visited the district</p>
+    
+                    <p>State Police Chief Anilkanth IPS visited Kottayam district as part of assessing the law and order situation in Kottayam district. As part of this, he reached the district police headquarters in the afternoon and meet the district station SHO’s. ADGP law and order Ajith Kumar M.R, South Zone IGP Prakash and Ernakulam Range DIG Neeraj Kumar Gupta were also present with the state police chief.</p>
+    
+                    <blockquote class="quote">
+                        Police Department on high alert for the smooth conduct of the recent Election
+                    </blockquote>
+    
+                    
+                    <p class="lead mb-4 font-weight-normal text-black">Growing tension and competiton among the candidate, caused a great uproar among the brain-washed citizen. Hence, Police shut downed the campaigning process of the Political parties</p>
+                </div>
+            </div>
+        </div>
+        
+                
+                
+    </section>
+
+{% endblock %}
