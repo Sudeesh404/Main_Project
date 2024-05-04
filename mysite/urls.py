@@ -23,7 +23,6 @@ urlpatterns = [
     path('', include('myapp.urls')),
     path('Admin/', include('Admin.urls')),
     path('Inspector/',include('Inspector.urls')),
-    path('Com/',include('Commissioner.urls')),
 
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
