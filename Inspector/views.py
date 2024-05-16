@@ -21,7 +21,7 @@ def register_station(request):
             if request.POST['password'] == request.POST['rpassword']:
                 otp = randrange(1000, 9999) 
                 print(otp)  
-                subject = 'ONE TIME PASSWORD FOR USER REGISTRATION'
+                subject = 'ONE TIME PASSWORD FOR POLICE STATION REGISTRATION'
                 message = f'{otp} please paste this number in the OTP field to verify your account.'
                 email_from = settings.EMAIL_HOST_USER
                 recipient_list = [request.POST['email'], ]
