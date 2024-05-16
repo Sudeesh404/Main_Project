@@ -19,7 +19,7 @@ def register_station(request):
             return render(request, 'station_register.html', {'msg': msg})
         except Ins.DoesNotExist:
             if request.POST['password'] == request.POST['rpassword']:
-                otp = randrange(100000, 999999) 
+                otp = randrange(1000, 9999) 
                 print(otp)  
                 subject = 'ONE TIME PASSWORD FOR USER REGISTRATION'
                 message = f'{otp} please paste this number in the OTP field to verify your account.'
